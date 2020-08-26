@@ -1,0 +1,27 @@
+*.class
+target/
+*/target
+logs/
+*.log
+.idea/
+# Package Files #
+*.jar
+*.war
+*.ear
+*.iml
+*.ipr
+*.iws
+.DS_Store
+*.DS_Store
+metastore_db/
+derby.log
+tmp/
+/bin/
+.cache-main
+.cache-tests
+.classpath
+.project
+.settings/
+.Rproj.user
+testdata/*
+/src/test/scala/local/
