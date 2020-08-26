@@ -1,0 +1,2 @@
+# collection.vf
+collection library
