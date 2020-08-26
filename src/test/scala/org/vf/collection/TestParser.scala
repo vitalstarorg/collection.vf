@@ -107,7 +107,7 @@ class TestParser extends FunSuite with BeforeAndAfterAll {
     assertEquals("(A,(B,,E),C)", token.getNode.asString)
   }
 
-  test("Error construction") {
+  test("Erroneous construction") {
     var token: Token = readToken("#")
     assertEquals("unrecognized character '#'", token.toString)
     token = readToken("(")

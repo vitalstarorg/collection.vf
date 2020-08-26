@@ -5,7 +5,7 @@ terminal, you should be able to learn something.  Hope this helps.
 
 # Getting Started
 Try the following, you should see something like below.  
-```bash
+```sbtshell
 $ git clone git@github.com:vitalstarorg/collection.vf.git
 $ cd collection.vf
 $ sbt test
@@ -32,7 +32,6 @@ editing, compilation, and test cycle, probably by 10x.
 
 # Tryout org.vf.collection.Node
 ## Basic Features
-Let's use the following to demostrate how we play with the library.
 ```sbtshell
 scala> import org.vf.collection.Node
 import org.vf.collection.Node
@@ -146,3 +145,36 @@ B1 B2
  C1 C2
 ```
 Left and right nodes can be nodes, so we can build a bigger tree.
+### Create a tree with unbalanced children
+```sbtshell
+scala> node = Node.create("(A1,(B1,C1,),)")
+node: org.vf.collection.NodeLike = Node(A1)
+
+scala> node.printTree
+res25: String =
+"    A1
+   /
+  B1
+ /
+C1
+"
+```
+### Erroneous construction
+```sbtshell
+scala> node = Node.create("(A1(B1,C1,),)")
+Error: node expects separator after 1st element, but Node(B1).
+node: org.vf.collection.NodeLike = Node()
+
+scala> node.isDefined
+res26: Boolean = false
+```
+After the first separator `,` from the construction, it indicates the problem.  In this case, `undefined` is returned.
+
+# Test Driven Development (TDD)
+We are developing this using TDD, so all the development is driven by defining unit tests first.  Please refer to all 
+unit tests for latest development and technical details.
+
+- [TestNode.scala](https://github.com/vitalstarorg/collection.vf/blob/master/src/test/scala/org/vf/collection/TestNode.scala)
+shows how the `Node` should behave.
+-  [TestParser](https://github.com/vitalstarorg/collection.vf/blob/master/src/test/scala/org/vf/collection/TestParser.scala) 
+shows different parsing scenarios.
