@@ -1,9 +1,30 @@
 # collection.vf
-We create this Scala collection library with VF framework for educational purpose.  
+We create this Scala collection library with VF framework for educational purpose.
+  
 We assume minimal programming experiences.  As long as you know how to use a 
-terminal, you should be able to learn something.  Hope this helps.
+terminal, you should be able to learn something, enjoy!
 
-# Getting Started
+# _Make the Code Talk_
+We are developing this project using Test Driven Development (TDD), so all the development is driven by defining 
+or prototyping using unit tests first.  
+
+We also code in the way to _make it talks_ i.e. intuitively, that the design
+idea in the code that talk back to you. The methods should guide your expression and thinking process on how to use the 
+code.  Therefore, the _unit test also talks_ so that they explain the design and usage by itself. There is always a room
+for improvement, at least this is our intention.  Please feel free to suggestion changes.
+
+Since we focus more on the design, instead of leveraging unique programming language feature, so we limit our use of 
+basic Scala object oriented and functional features; therefore the same design can be reimplemented in other languages e.g. Java,
+Python or C++.
+
+Please refer to all unit tests for latest development and technical details.
+
+- [TestNode.scala](https://github.com/vitalstarorg/collection.vf/blob/master/src/test/scala/org/vf/collection/TestNode.scala)
+shows how the `Node` should behave.
+-  [TestParser](https://github.com/vitalstarorg/collection.vf/blob/master/src/test/scala/org/vf/collection/TestParser.scala) 
+shows different parsing scenarios.
+
+# Tryout
 Try the following, you should see something like below.  
 ```sbtshell
 $ git clone git@github.com:vitalstarorg/collection.vf.git
@@ -25,12 +46,12 @@ If you see `Failed 0`, you are ready to go.
 ```sbtshell
 $ sbt console
 ```
-Enter to `sbt console`, the console will load the Scala packages in this project.  It is very similar to Python or Ruby 
-and other scripting languages. Since this console will directly compile what you typed directly into JVM bytecode, so
-it works almost the same as the code running in unit test environment. This is an useful debugging tool by reducing the
+Entering into _sbt console_, the console will load the Scala packages in this project.  It is very similar to Python or Ruby 
+and other scripting languages. Since this console will instantly compile what you typed directly into JVM bytecode, so
+it works almost the same as the code running in unit test environment. This is an helpful for debugging as it reduces the
 editing, compilation, and test cycle, probably by 10x.
 
-# Tryout org.vf.collection.Node
+# org.vf.collection.Node
 ## Basic Features
 ```sbtshell
 scala> import org.vf.collection.Node
@@ -117,8 +138,8 @@ res11: Int = 1450787378
 scala> root.left.hashCode
 res12: Int = 1450787378
 ```
-All `undefined` node is the same object instance. In case of feature enhancement, this will help us to handle many logic
-consistently.
+All `undefined` node is the same object instance. In case of feature enhancement, this will help us to handle error
+logic consistently.
 ### Create a small tree
 ```sbtshell
 scala> node = Node.create("(A1,B1,B2)")
@@ -144,7 +165,9 @@ B1 B2
   / \
  C1 C2
 ```
-Left and right nodes can be nodes, so we can build a bigger tree.
+Besides left and right of a node can be names, but they can also be nodes.  This is the way we build build a bigger 
+tree.  Please note that the `printTree` algorithm making
+`B2` closer to `B1` because `B1` has no children, so `C1` can take up its space to make the tree more compact.
 ### Create a tree with unbalanced children
 ```sbtshell
 scala> node = Node.create("(A1,(B1,C1,),)")
@@ -168,13 +191,4 @@ node: org.vf.collection.NodeLike = Node()
 scala> node.isDefined
 res26: Boolean = false
 ```
-After the first separator `,` from the construction, it indicates the problem.  In this case, `undefined` is returned.
-
-# Test Driven Development (TDD)
-We are developing this using TDD, so all the development is driven by defining unit tests first.  Please refer to all 
-unit tests for latest development and technical details.
-
-- [TestNode.scala](https://github.com/vitalstarorg/collection.vf/blob/master/src/test/scala/org/vf/collection/TestNode.scala)
-shows how the `Node` should behave.
--  [TestParser](https://github.com/vitalstarorg/collection.vf/blob/master/src/test/scala/org/vf/collection/TestParser.scala) 
-shows different parsing scenarios.
+After we remove the first separator `,` from the construction, it errors out the problem.  In this case, `undefined` is returned.
