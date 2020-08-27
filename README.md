@@ -4,13 +4,13 @@ We create this Scala collection library with VF framework for educational purpos
 We assume minimal programming experiences.  As long as you know how to use a 
 terminal, you should be able to learn something, enjoy!
 
-# _Make the Code Talk_
+# _Make the Code Talks_
 We are developing this project using Test Driven Development (TDD), so all the development is driven by defining 
 or prototyping using unit tests first.  
 
 We also code in the way to _make it talks_ i.e. intuitively, that the design
 idea in the code that talk back to you. The methods should guide your expression and thinking process on how to use the 
-code.  Therefore, the _unit test also talks_ so that they explain the design and usage by itself. There is always a room
+code.  Therefore, the _unit tests also talk_ so that they explain the design and usage by itself. There is always a room
 for improvement, at least this is our intention.  Please feel free to suggestion changes.
 
 Since we focus more on the design, instead of leveraging unique programming language feature, so we limit our use of 
