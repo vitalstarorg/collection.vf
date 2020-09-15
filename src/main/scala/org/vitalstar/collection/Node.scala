@@ -1,4 +1,4 @@
-package org.vf.collection
+package org.vitalstar.collection
 
 // Define the behavior for different kind of Node implementation
 trait NodeLike {

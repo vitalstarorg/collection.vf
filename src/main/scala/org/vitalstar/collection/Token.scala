@@ -1,4 +1,4 @@
-package org.vf.collection
+package org.vitalstar.collection
 
 import scala.collection.mutable
 import scala.util.matching.Regex
@@ -78,8 +78,7 @@ object NodeParser {
 }
 
 class NodeParser {
-  import org.vf.collection.NodeParser._
-
+  import NodeParser._
   val st: mutable.Stack[Char] = mutable.Stack[Char]()
   var token: Token = _
 

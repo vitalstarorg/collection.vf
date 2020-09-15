@@ -1,4 +1,4 @@
-package org.vf.collection
+package org.vitalstar.collection
 
 import scala.annotation.tailrec
 import scala.collection.mutable

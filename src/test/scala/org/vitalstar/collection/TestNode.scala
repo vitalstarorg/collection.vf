@@ -1,4 +1,4 @@
-package org.vf.collection
+package org.vitalstar.collection
 
 import org.junit.runner.RunWith
 import org.junit.Assert._

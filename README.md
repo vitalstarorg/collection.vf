@@ -192,3 +192,62 @@ scala> node.isDefined
 res26: Boolean = false
 ```
 After we remove the first separator `,` from the construction, it errors out the problem.  In this case, `undefined` is returned.
+
+# org.vf.collection.DigitGenerator
+## Permutation
+```sbtshell
+scala> import org.vitalstar.collection.DigitGenerator
+import org.vitalstar.collection.DigitGenerator
+
+scala> val dg = DigitGenerator.permutation(3,2)
+dg: Iterator[List[Int]] = [1 2] [0 2]
+
+scala> dg.foreach{ println(_) }
+List(0, 1)
+List(0, 2)
+List(1, 0)
+List(1, 2)
+List(2, 0)
+List(2, 1)
+
+scala> dg.hasNext
+res1: Boolean = false
+
+scala> val dg = DigitGenerator.permutation(List("A","B","C"),2)
+dg: Iterator[List[String]] = non-empty iterator
+
+scala> dg.foreach{ println(_) }
+List(A, B)
+List(A, C)
+List(B, A)
+List(B, C)
+List(C, A)
+List(C, B)
+
+scala> dg.hasNext
+res3: Boolean = false
+```
+## Combination
+```sbtshell
+scala> val dg = DigitGenerator.combination(3,2)
+dg: Iterator[List[Int]] = [1 2] [0 1]
+
+scala> dg.foreach{ println(_) }
+List(0, 1)
+List(0, 2)
+List(1, 2)
+
+scala> dg.hasNext
+res1: Boolean = false
+
+scala> val dg = DigitGenerator.combination(List("A","B","C"),2)
+dg: Iterator[List[String]] = non-empty iterator
+
+scala> dg.foreach{ println(_) }
+List(A, B)
+List(A, C)
+List(B, C)
+
+scala> dg.hasNext
+res7: Boolean = false
+```

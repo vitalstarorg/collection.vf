@@ -1,11 +1,11 @@
-package org.vf.collection
+package org.vitalstar.collection
 
 import org.junit.Assert.{assertEquals, assertTrue}
 import org.junit.runner.RunWith
 import org.scalatest.{BeforeAndAfterAll, FunSuite}
 import org.scalatest.junit.JUnitRunner
 
-import org.vf.collection.NodeParser.readToken
+import NodeParser.readToken
 
 @RunWith(classOf[JUnitRunner])
 class TestParser extends FunSuite with BeforeAndAfterAll {
